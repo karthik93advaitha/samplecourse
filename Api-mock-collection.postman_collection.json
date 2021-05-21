@@ -1,0 +1,403 @@
+{
+	"info": {
+		"_postman_id": "2da502e1-79e4-41b0-900b-0fea2f3ada99",
+		"name": "Api-mock-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get-products",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "EZKnCLs6DAI8bRwcJI7KicNwL3LX85bh",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "apikey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://karthikrajcs036-eval-test.apigee.net/retail/v1/products",
+					"protocol": "https",
+					"host": [
+						"karthikrajcs036-eval-test",
+						"apigee",
+						"net"
+					],
+					"path": [
+						"retail",
+						"v1",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-categories",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "EZKnCLs6DAI8bRwcJI7KicNwL3LX85bh",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "apikey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orderNumber\": 342345,\r\n    \"lineItems\": [\r\n        { \"productId\": \"ME089LLA\", \"quantity\": 1 },\r\n        { \"productId\": \"MD388LLA\", \"quantity\": 2 },\r\n        { \"productId\": \"ME761LLB\", \"quantity\": 3 },\r\n        { \"productId\": \"MD878LLA\", \"quantity\": 4 }\r\n    ],\r\n    \"promisedDeliveryDate\": \"30 Oct 2019\",\r\n    \"deliveryNotes\": \"If not home, please place inside backyard gate\",\r\n    \"destination\": {\r\n        \"addressType\": \"home\",\r\n        \"address\": {\r\n            \"streetAddr1\": \"1 Main St.\"\r\n        }\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "https://karthikrajcs036-eval-test.apigee.net/retail/v1/categories",
+					"protocol": "https",
+					"host": [
+						"karthikrajcs036-eval-test",
+						"apigee",
+						"net"
+					],
+					"path": [
+						"retail",
+						"v1",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "options-product",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "EZKnCLs6DAI8bRwcJI7KicNwL3LX85bh",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "apikey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "OPTIONS",
+				"header": [
+					{
+						"key": "Access-Control-Request-Method",
+						"value": "PATCH",
+						"type": "text"
+					},
+					{
+						"key": "Access-Control-Request-Headers",
+						"value": "Accept,Content-Type,apikey",
+						"type": "text"
+					},
+					{
+						"key": "Origin",
+						"value": "https://www.sharvarigroup.com",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"overall_rating\": 9.0\r\n}"
+				},
+				"url": {
+					"raw": "https://karthikrajcs036-eval-test.apigee.net/retail/v1/products/00621094000P",
+					"protocol": "https",
+					"host": [
+						"karthikrajcs036-eval-test",
+						"apigee",
+						"net"
+					],
+					"path": [
+						"retail",
+						"v1",
+						"products",
+						"00621094000P"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "err-invalid-cat",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "EZKnCLs6DAI8bRwcJI7KicNwL3LX85bh",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "apikey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Origin",
+						"value": "https://www.sharvarigroup.com",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://karthikrajcs036-eval-test.apigee.net/retail/v1/cat",
+					"protocol": "https",
+					"host": [
+						"karthikrajcs036-eval-test",
+						"apigee",
+						"net"
+					],
+					"path": [
+						"retail",
+						"v1",
+						"cat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-search=jazz,pop,nomad",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://karthikrajcs036-eval-test.apigee.net/lab8b/v1?search=jazz,pop,nomad",
+					"protocol": "https",
+					"host": [
+						"karthikrajcs036-eval-test",
+						"apigee",
+						"net"
+					],
+					"path": [
+						"lab8b",
+						"v1"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "jazz,pop,nomad"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-stores",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "EZKnCLs6DAI8bRwcJI7KicNwL3LX85bh",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "apikey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://karthikrajcs036-eval-test.apigee.net/retail/v1/stores/central-warehouse-1",
+					"protocol": "https",
+					"host": [
+						"karthikrajcs036-eval-test",
+						"apigee",
+						"net"
+					],
+					"path": [
+						"retail",
+						"v1",
+						"stores",
+						"central-warehouse-1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-stocks-xmloutput",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://karthikrajcs036-eval-test.apigee.net/lab7a/v1/quotes/GOOG?LicenseKey=0",
+					"protocol": "https",
+					"host": [
+						"karthikrajcs036-eval-test",
+						"apigee",
+						"net"
+					],
+					"path": [
+						"lab7a",
+						"v1",
+						"quotes",
+						"GOOG"
+					],
+					"query": [
+						{
+							"key": "LicenseKey",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patch-product",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "apikey",
+						"value": "EZKnCLs6DAI8bRwcJI7KicNwL3LX85bh",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"overall_rating\": 3.0\r\n}"
+				},
+				"url": {
+					"raw": "https://karthikrajcs036-eval-test.apigee.net/retail/v1/products/MD388LLA",
+					"protocol": "https",
+					"host": [
+						"karthikrajcs036-eval-test",
+						"apigee",
+						"net"
+					],
+					"path": [
+						"retail",
+						"v1",
+						"products",
+						"MD388LLA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-oauth-client_credential-accesstoken?grant_type=client_credentials",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "bAcEaUhtWpogjX1Q",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "EZKnCLs6DAI8bRwcJI7KicNwL3LX85bh",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://karthikrajcs036-eval-test.apigee.net/oauth/client_credential/accesstoken?grant_type=client_credentials",
+					"protocol": "https",
+					"host": [
+						"karthikrajcs036-eval-test",
+						"apigee",
+						"net"
+					],
+					"path": [
+						"oauth",
+						"client_credential",
+						"accesstoken"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials"
+						}
+					]
+				},
+				"description": "pass apikey as username and secret as password in the auth header"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", () => pm.response.to.have.status(200))"
+				]
+			}
+		}
+	]
+}
