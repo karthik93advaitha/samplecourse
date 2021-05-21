@@ -2,9 +2,9 @@ node {
 
   // config 
   def to = emailextrecipients([
-          [$class: '9dfa890c6b-415fb6@inbox.mailtrap.io'],
-          [$class: '9dfa890c6b-415fb6@inbox.mailtrap.io'],
-          [$class: '9dfa890c6b-415fb6@inbox.mailtrap.io']
+          [$class: 'CulpritsRecipientProvider'],
+          [$class: 'DevelopersRecipientProvider'],
+          [$class: 'RequesterRecipientProvider']
   ])
 
   // job
