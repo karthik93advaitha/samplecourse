@@ -7,20 +7,22 @@ node {
           [$class: 'RequesterRecipientProvider']
   ])
 
-  env.NODEJS_HOME = "${tool 'nodejs'}"
-    // on linux / mac
-  env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
-  sh 'npm --version'
-  sh 'npm install -g newman'
-  sh 'newman -v'
   
   // job
   try {
     stage('git') {
       checkout scm
     }
+    stage('Newman setup') {
+       env.NODEJS_HOME = "${tool 'nodejs'}"
+    // on linux / mac
+       env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
+       sh 'npm --version'
+       sh 'npm install -g newman'
+       sh 'newman -v'
+    }
     stage('test') {
-      println('A test has failed!')
+      println('Initiating tests through newman')
       sh 'pwd'
       sh 'newman run ./Api-mock-collection.postman_collection.json --suppress-exit-code 120'
     }
