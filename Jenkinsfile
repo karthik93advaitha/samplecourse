@@ -14,7 +14,7 @@ node {
     }
     stage('test') {
       println('A test has failed!')
-      sh 'export PATH=$PATH:/home/osboxes/.nvm/versions/node/v14.17.0/bin; echo $PATH; /home/osboxes/.nvm/versions/node/v14.17.0/bin/newman run Api-mock-collection.postman_collection.json --suppress-exit-code 1'
+      sh 'export PATH=$PATH:/home/osboxes/.nvm/versions/node/v14.17.0/bin; echo $PATH; newman run Api-mock-collection.postman_collection.json --suppress-exit-code 1'
       sh 'echo $PATH'
     }
   } catch(e) {
