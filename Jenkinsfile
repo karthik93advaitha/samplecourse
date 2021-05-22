@@ -24,7 +24,7 @@ node {
     stage('test') {
       println('Initiating tests through newman')
       sh 'pwd'
-      sh 'newman run ./Api-mock-collection.postman_collection.json --suppress-exit-code 120'
+      sh 'newman run ./Api-mock-collection.postman_collection.json --suppress-exit-code -1'
     }
   } catch(e) {
     // mark build as failed
