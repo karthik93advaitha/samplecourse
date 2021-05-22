@@ -16,13 +16,13 @@ node {
   
   // job
   try {
-    stage('build') {
-      println('so far so good...')
+    stage('git') {
+      checkout scm
     }
     stage('test') {
       println('A test has failed!')
       sh 'pwd'
-      sh 'newman run Api-mock-collection.postman_collection.json --suppress-exit-code 1'
+      sh 'newman run ./Api-mock-collection.postman_collection.json --suppress-exit-code 1'
     }
   } catch(e) {
     // mark build as failed
