@@ -11,7 +11,7 @@ node {
     // on linux / mac
   env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
   sh 'npm --version'
-  sh 'npm -g newman'
+  sh 'npm install -g newman'
   sh 'newman -v'
   
   // job
