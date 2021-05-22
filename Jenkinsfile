@@ -7,7 +7,7 @@ node {
           [$class: 'RequesterRecipientProvider']
   ])
 
-  env.NODEJS_HOME = "${tool 'Node 14.17'}"
+  env.NODEJS_HOME = "${tool 'nodejs'}"
     // on linux / mac
   env.PATH="${env.NODEJS_HOME}/bin:${env.PATH}"
   sh 'npm --version'
