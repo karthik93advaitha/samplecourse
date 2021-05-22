@@ -21,7 +21,7 @@ node {
     }
     stage('test') {
       println('A test has failed!')
-      sh 'node --version;npm --version'
+      sh 'pwd;ls-lrt'
       sh 'newman run Api-mock-collection.postman_collection.json --suppress-exit-code 1'
     }
   } catch(e) {
