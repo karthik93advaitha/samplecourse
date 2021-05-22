@@ -27,7 +27,7 @@ node {
     if(to != null && !to.isEmpty()) {
       emailext(body: content, mimeType: 'text/html',
          replyTo: '$DEFAULT_REPLYTO', subject: subject,
-         to: 'randomleader93@gmail.com', attachLog: true )
+         to: '$DEFAULT_REPLYTO', attachLog: true )
     }
 
     // mark current build as a failure and throw the error
